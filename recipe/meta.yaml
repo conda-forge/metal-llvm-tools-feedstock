@@ -1,4 +1,4 @@
-{% set version = "0.5.1" %}
+{% set version = "13.0.1" %}
 {% set llvm_version = "15" %}
 
 package:
@@ -9,15 +9,16 @@ source:
   # See https://github.com/JuliaPackaging/Yggdrasil/blob/master/M/Metal_LLVM_Tools/build_tarballs.jl#L18
   # for the commits
   url: https://github.com/JuliaGPU/llvm-metal/archive/b7f9ec094a19439c59e4095d3c92e506eb6c1285.tar.gz
-  sha256: 44c64b16560a16091a8d248499a471ffd798aef10e2974722e35e072ada26aad
+  sha256: 4f2f879fe77e8dd8f6c388767b61ecee9bfa916644be45e461f47b3c6e5995ff
 
 build:
   number: 0
-  skip: True  # [win]
+  skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cmake
     - ninja
     - python >=3
